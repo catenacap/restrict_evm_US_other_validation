@@ -1,15 +1,15 @@
 # restrict_evm_US_other_validation
-EVM_IP_Based_Restrictions
+**EVM_IP_Based_Restrictions**
 
-The following mechanism added into your smart contract's will add the function to reject validation or mining from nodes located in the United States[1],[2],[3]. 
+The following mechanism added into your smart contract's will add the function to reject validation or mining from nodes located in the United States**[1]**,**[2]**,**[3]**. 
 
-[1] Understand this is not specific to the US, due to regulatory lack of clarity, it would be prudent to cut the US from validation processes for validating transactions/smart-contracts processes in the US so as to avoid regulatory action against the project/company/developer. 
+**[1]** Understand this is not specific to the US, due to regulatory lack of clarity, it would be prudent to cut the US from validation processes for validating transactions/smart-contracts processes in the US so as to avoid regulatory action against the project/company/developer. 
 
-[2] Replace US with or addition to other countries you wish to restrict from processing your transactions/smart-contract processes.
+**[2]** Replace US with or addition to other countries you wish to restrict from processing your transactions/smart-contract processes.
 
-[3] Look for (advisable) friendly states where there is no concern for regulatory attacks based on 1 or % of transactions processing through validators/miners in those states (suggestions : BVI, Thailand, Singapore, UAE, Bahamas, Malaysia.
+**[3]** Look for (advisable) friendly states where there is no concern for regulatory attacks based on 1 or % of transactions processing through validators/miners in those states (suggestions : BVI, Thailand, Singapore, UAE, Bahamas, Malaysia.
 
-1) Start by importing the necessary Ethereum libraries and defining the contract:
+**1)** Start by importing the necessary Ethereum libraries and defining the contract:
 
 pragma solidity ^0.8.0;
 
@@ -51,7 +51,7 @@ By using this approach, you can ensure that your smart contract only operates fr
 
 -----
 ####
-"pragma solidity ^0.8.0;
+pragma solidity ^0.8.0;
 
 contract USValidationRestriction {
     mapping (string => string) private _ipCountry;
@@ -80,9 +80,9 @@ contract USValidationRestriction {
         // This function can only be called from nodes located outside the United States
         // ...
     }
-}"
+}
 
-##END##
+###
 ---
 
 The 'onlyOwner' modifier restricts access to the 'updateIpCountryMapping' function to the contract owner, who has the authority to update the IP-country mapping.
