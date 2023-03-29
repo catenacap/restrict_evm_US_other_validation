@@ -92,3 +92,14 @@ The 'onlyNonUS' modifier checks if the IP address of the node that is calling th
 The 'myRestrictedFunction' function is an example of a function that is restricted to non-US nodes. It can only be called from nodes located outside the United States.
 
 You can customize the IP-country mapping and the country name used in the 'onlyNonUS' modifier to meet your specific regulatory requirements. Also, keep in mind that this approach relies on the accuracy and reliability of the external API used to retrieve the country information, so you should choose a reputable and trustworthy provider.
+
+--
+How does it check the IP address of the validator node?
+
+The IP address of the validator or miner is retrieved through the tx.origin variable, which represents the address of the sender of the transaction that triggered the function call.
+
+When a validator or miner submits a transaction to the Ethereum network, they include their IP address in the transaction payload. The tx.origin variable allows you to retrieve this information and use it to determine the country of origin of the node.
+
+The IP address is then used as a key in the _ipCountry mapping to retrieve the corresponding country value. If the country is detected as "United States", the onlyNonUS modifier reverts the transaction and prevents the function from being executed.
+
+Note that this approach relies on the accuracy and reliability of the IP-country mapping and external APIs used to retrieve this information. It's also possible for malicious actors to spoof their IP addresses or use proxy servers to bypass this restriction. Therefore, you should use this mechanism in combination with other security measures to ensure the integrity and safety of your smart contract.
