@@ -50,7 +50,7 @@ By using this approach, you can ensure that your smart contract only operates fr
 
 
 -----
-
+####
 pragma solidity ^0.8.0;
 
 contract USValidationRestriction {
@@ -82,7 +82,7 @@ contract USValidationRestriction {
     }
 }
 
-
+##END##
 ---
 
 The 'onlyOwner' modifier restricts access to the 'updateIpCountryMapping' function to the contract owner, who has the authority to update the IP-country mapping.
