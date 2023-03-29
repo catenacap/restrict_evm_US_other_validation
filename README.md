@@ -1,4 +1,5 @@
-# restrict_evm_US_other_validation
+# Restrict EVM from processing transactions on a US Based Validator/Minor Node.
+
 **EVM_IP_Based_Restrictions**
 
 The following mechanism added into your smart contract's will add the function to reject validation or mining from nodes located in the United States**[1]**,**[2]**,**[3]**. 
