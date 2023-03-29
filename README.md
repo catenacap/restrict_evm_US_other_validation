@@ -51,7 +51,7 @@ By using this approach, you can ensure that your smart contract only operates fr
 
 -----
 ####
-pragma solidity ^0.8.0;
+"pragma solidity ^0.8.0;
 
 contract USValidationRestriction {
     mapping (string => string) private _ipCountry;
@@ -80,7 +80,7 @@ contract USValidationRestriction {
         // This function can only be called from nodes located outside the United States
         // ...
     }
-}
+}"
 
 ##END##
 ---
