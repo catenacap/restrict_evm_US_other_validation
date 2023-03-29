@@ -48,3 +48,47 @@ function myRestrictedFunction() public onlyNonUS {
 
 By using this approach, you can ensure that your smart contract only operates from nodes that are located outside the United States, as required by your regulatory requirements.
 
+
+-----
+
+pragma solidity ^0.8.0;
+
+contract USValidationRestriction {
+    mapping (string => string) private _ipCountry;
+    address private _owner;
+
+    constructor() {
+        _owner = msg.sender;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == _owner, "Only the contract owner can call this function.");
+        _;
+    }
+
+    modifier onlyNonUS() {
+        string memory country = _ipCountry[tx.origin];
+        require(keccak256(bytes(country)) != keccak256(bytes("United States")), "US-based node detected.");
+        _;
+    }
+
+    function updateIpCountryMapping(string memory ipAddress, string memory country) public onlyOwner {
+        _ipCountry[ipAddress] = country;
+    }
+
+    function myRestrictedFunction() public onlyNonUS {
+        // This function can only be called from nodes located outside the United States
+        // ...
+    }
+}
+
+
+---
+
+The 'onlyOwner' modifier restricts access to the 'updateIpCountryMapping' function to the contract owner, who has the authority to update the IP-country mapping.
+
+The 'onlyNonUS' modifier checks if the IP address of the node that is calling the function is located in the United States. If so, it reverts the transaction and prevents the function from being executed.
+
+The 'myRestrictedFunction' function is an example of a function that is restricted to non-US nodes. It can only be called from nodes located outside the United States.
+
+You can customize the IP-country mapping and the country name used in the 'onlyNonUS' modifier to meet your specific regulatory requirements. Also, keep in mind that this approach relies on the accuracy and reliability of the external API used to retrieve the country information, so you should choose a reputable and trustworthy provider.
