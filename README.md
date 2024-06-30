@@ -1,4 +1,4 @@
-# Restrict EVM from processing transactions on a US Based Validator/Minor Node.
+# Restrict EVM from processing transactions on a US Based Validator/Miner Node.
 
 **EVM_IP_Based_Restrictions**
 
